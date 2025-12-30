@@ -2,26 +2,223 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>About Us</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANYCHASE GAMES - About Us</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #0a0e27, #1a1f3a);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-top {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo-bottom {
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: #7dd3fc;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            padding-bottom: 5px;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            color: #7dd3fc;
+            border-bottom: 2px solid #7dd3fc;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            letter-spacing: 6px;
+        }
+
+        .hero .games {
+            display: block;
+            font-size: 28px;
+            color: #7dd3fc;
+            letter-spacing: 12px;
+            margin-top: 10px;
+        }
+
+        .hero p {
+            margin-top: 30px;
+            font-size: 20px;
+            color: #e5e7eb;
+            max-width: 700px;
+        }
+
+        /* About icerik */
+        .about-section {
+            padding: 80px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #e5e7eb;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-img {
+            width: 100%;
+            max-width: 500px;
+            margin: 50px auto 0;
+            display: block;
+            border-radius: 14px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+
+        footer {
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #7dd3fc;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<img src="anchase.png" alt="Açıklama">
 
-<nav>
-    <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="about.html" class="active">ABOUT US</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-    </ul>
-</nav>
+<header>
+    <div>
+        <div class="logo-top">ANYCHASE</div>
+        <div class="logo-bottom">GAMES</div>
+    </div>
 
-<main>
-    <h1>About Us</h1>
+    <nav>
+        <ul>
+            <li><a href="anychase.html">GAMES</a></li>
+            <li><a href="about.html" class="active">ABOUT US</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div>
+        <h1>
+            ABOUT
+            <span class="games">ANYCHASE</span>
+        </h1>
+        <p>
+            Anychase Games, yeni dünyalar yaratma tutkusu ile kurulmuş
+            bağımsız bir oyun stüdyosudur.
+        </p>
+    </div>
+</section>
+
+<section class="about-section">
+    <h2>Who We Are</h2>
     <p>
-        Buraya hakkımızda metni gelecek.
+        Biz Anychase Games olarak eğlenceli, yaratıcı ve unutulmaz
+        oyun deneyimleri üretmeyi hedefliyoruz.
+        Amacımız oyuncuların tekrar tekrar dönmek isteyeceği
+        dünyalar inşa etmek.
     </p>
-</main>
+
+    <img src="img/anchase.png" alt="Anychase Games" class="about-img">
+</section>
+
+<footer>
+    <div class="social-links">
+        <a href="#">sosyal medya icon</a>
+        <a href="#">sosyal medya icon </a>
+    </div>
+    <div class="copyright">
+        © 2025 Anychase Games. All Rights Reserved.
+    </div>
+</footer>
 
 </body>
 </html>
