@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANYCHASE GAMES - Forging New Worlds</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #0a0e27, #1a1f3a);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* Header & Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo-top {
+            font-size: 24px;
+        }
+
+        .logo-bottom {
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: #7dd3fc;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            padding-bottom: 5px;
+            transition: all 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #7dd3fc;
+            border-bottom: 2px solid #7dd3fc;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%23101829" width="1920" height="1080"/></svg>');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(10, 14, 39, 0.8) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 900;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(125, 211, 252, 0.5);
+        }
+
+        .hero h1 .games {
+            display: block;
+            font-size: 36px;
+            letter-spacing: 16px;
+            color: #7dd3fc;
+            margin-top: 10px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin: 30px 0 50px;
+            color: #e0e0e0;
+            font-weight: 300;
+        }
+
+        .play-btn {
+            background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+            color: white;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 30px rgba(14, 165, 233, 0.4);
+        }
+
+        .play-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(14, 165, 233, 0.6);
+        }
+
+        /* Games Section */
+        .games-section {
+            padding: 80px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .games-section h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .game-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            height: 200px;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .game-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #1e293b;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            z-index: 2;
+            letter-spacing: 1px;
+        }
+
+        .game-title {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 2;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 80px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #7dd3fc;
+            font-size: 20px;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #0ea5e9;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 30px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .games-section {
+                padding: 60px 30px;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <div class="logo-top">ANYCHASE</div>
+            <div class="logo-bottom">GAMES</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#games" class="active">GAMES</a></li>
+                <li><a href="#about">ABOUT US</a></li>
+                <li><a href="#careers">CAREERS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                ANYCHASE
+                <span class="games">GAMES</span>
+            </h1>
+            <p>Yepyeni bir oyun dünyası kurduk!
+Keşfet, oyna, eğlen ve bu maceranın bir parçası ol.
+Biz hazırız, ya sen? </p>
+            <button class="play-btn">PLAY NOW</button>
+        </div>
+    </section>
+
+    <section class="games-section" id="games">
+        <h2>Play to Now</h2>
+        <div class="games-grid">
+            <div class="game-card">
+                <span class="game-badge">COMING SOON</span>
+                <div class="game-title"></div>
+            </div>
+            <div class="game-card">
+                <span class="game-badge">COMING SOON</span>
+                <div class="game-title"></div>
+            </div>
+            <div class="game-card">
+                <span class="game-badge">COMING SOON</span>
+                <div class="game-title"></div>
+            </div>
+        
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Lınkedn">📷</a>
+
+        </div>
+        <div class="copyright">
+            © 2025 Anychase Games. All Rights Reserved.
+        </div>
+    </footer>
+</body>
+</html>
