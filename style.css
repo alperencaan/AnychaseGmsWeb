@@ -548,4 +548,9 @@ footer {
   .contact-form textarea {
     font-size: 0.875rem;
   }
+
+ /*dark light islemi  */
+}body.light {
+    background: #ffffff;
+    color: #000;
 }

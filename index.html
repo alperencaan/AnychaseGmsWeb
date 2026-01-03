@@ -26,9 +26,12 @@
         <div class="logo-bottom">GAMES</div>
     </div>
 
+    <button class="theme-toggle" id="themeToggle">
+        <span id="themeIcon">🌙</span>
+    </button>
+
     <nav>
         <ul>
-            <!-- Ana sayfa olduğu için #games bırakıldı -->
             <li><a href="#games" class="active">GAMES</a></li>
             <li><a href="about.html">ABOUT US</a></li>
             <li><a href="contact.html">CONTACT</a></li>
@@ -85,6 +88,30 @@
         © 2025 Anychase Games. All Rights Reserved.
     </div>
 </footer>
+
+<script>
+    const toggleBtn = document.getElementById("themeToggle");
+    const icon = document.getElementById("themeIcon");
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+        body.classList.add("light");
+        icon.textContent = "☀️";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+        body.classList.toggle("light");
+
+        if (body.classList.contains("light")) {
+            icon.textContent = "☀️";
+            localStorage.setItem("theme", "light");
+        } else {
+            icon.textContent = "🌙";
+            localStorage.setItem("theme", "dark");
+        }
+    });
+</script>
 
 </body>
 </html>
