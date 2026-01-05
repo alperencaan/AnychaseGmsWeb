@@ -37,6 +37,7 @@ body {
   line-height: 1.6;
   min-height: 100vh;
 }
+
 body::before {
   content: '';
   position: fixed;
@@ -52,7 +53,7 @@ body::before {
     rgba(13, 13, 13, 1) 100%);
   background-size: 200% 200%;
   animation: gradientWave 50s ease infinite;
-}
+} 
 
 body::after {
   content: '';
@@ -63,7 +64,7 @@ body::after {
   height: 100%;
   z-index: -1;
   pointer-events: none;
-}
+} 
 
 @keyframes gradientWave {
   0%, 100% { background-position: 0% 50%; }
@@ -548,9 +549,114 @@ footer {
   .contact-form textarea {
     font-size: 0.875rem;
   }
+}
 
- /*dark light islemi  */
-}body.light {
-    background: #ffffff;
-    color: #000;
+/* THEME TOGGLE BUTTON */
+.theme-toggle {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 999;
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-accent);
+  transform: scale(1.1) rotate(20deg);
+  box-shadow: 0 6px 30px var(--shadow-glow);
+}
+
+body.light .theme-toggle {
+  background: #ffffff;
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 20px rgba(255, 152, 0, 0.2);
+}
+
+body.light .theme-toggle:hover {
+  background-color: var(--color-accent);
+  color: #ffffff;
+  box-shadow: 0 6px 30px var(--shadow-glow);
+}
+
+/* LIGHT THEME */
+body.light {
+  --color-bg-primary: #fef5e7;      
+  --color-bg-secondary: #fff8f0;       
+  --color-bg-tertiary: #fff0e0;
+  
+  --color-accent: #ff9800;             
+  --color-accent-dim: #ff6f00;         
+  
+  --color-text-primary: #2a2a2a;
+  --color-text-secondary: #5a5a5a;
+  --color-text-muted: #9a9a9a;
+  
+  --border-subtle: rgba(255, 152, 0, 0.15);
+  --shadow-glow: rgba(255, 152, 0, 0.4);
+}
+
+body.light::before {
+  background: linear-gradient(135deg, 
+    rgba(254, 245, 231, 1) 0%,
+    rgba(255, 165, 0, 0.35) 50%,  
+    rgba(254, 245, 231, 1) 100%);
+  background-size: 200% 200%;
+  animation: gradientWave 50s ease infinite;
+}
+
+body.light header {
+  background-color: rgba(255, 248, 240, 0.90);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(255, 152, 0, 0.3);
+}
+
+body.light footer {
+  background-color: rgba(255, 248, 240, 0.90);
+  box-shadow: 0 -2px 20px rgba(255, 152, 0, 0.3);
+}
+
+body.light .game-card {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+body.light .game-card:hover {
+  box-shadow: 0 10px 40px var(--shadow-glow);
+  border-color: var(--color-accent);
+}
+
+body.light .game-badge {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+body.light .logo-top::after {
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--color-accent) 20%, 
+    var(--color-accent) 80%, 
+    transparent 100%);
+  box-shadow: 0 0 10px var(--color-accent), 
+              0 0 20px var(--shadow-glow);
+}
+
+body.light .play-btn {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dim));
+  box-shadow: 0 0 30px var(--shadow-glow);
+  color: #ffffff;
+}
+
+body.light .play-btn:hover {
+  box-shadow: 0 0 40px var(--color-accent);
 }
