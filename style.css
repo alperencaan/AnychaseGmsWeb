@@ -214,7 +214,7 @@ nav a.active::after {
 }
 
 .hero h1 {
-  font-size: 4rem;
+  font-size: 5rem;
   margin-bottom: var(--space-sm);
   text-shadow: 0 0 30px var(--shadow-glow);
 }
@@ -222,12 +222,12 @@ nav a.active::after {
 .hero h1 .games {
   display: block;
   color: var(--color-accent);
-  font-size: 3rem;
+  font-size: 4rem;
   margin-top: var(--space-xs);
 }
 
 .hero p {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: var(--color-text-secondary);
   margin-bottom: var(--space-lg);
   line-height: 1.8;
