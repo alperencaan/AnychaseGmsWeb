@@ -15,6 +15,7 @@
   --shadow-glow: rgba(0, 217, 255, 0.2);
 
   --hamburger-color: rgba(26, 26, 26, 0.5);
+  --hamburger-shadow: rgba(0, 0, 0, 0.4);
   
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -605,6 +606,7 @@ body.light {
   --color-text-muted: #9a9a9a;
 
   --hamburger-color: rgba(255, 255, 255,0.7);
+  --hamburger-shadow: rgba(224, 215, 215, 0.4);
   
   --border-subtle: rgba(255, 152, 0, 0.15);
   --shadow-glow: rgba(255, 152, 0, 0.3);
@@ -814,8 +816,10 @@ body.light .faq-card-back {
     right: 0;
     width: 25%;
     background-color: var(--hamburger-color);
-    box-shadow: 0px 2px 20px var(--hamburger-color);
+    box-shadow: -8px 8px 25px var(--hamburger-shadow);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 0 0 0 12px;
   }
 
   .nav-list {
